@@ -19,7 +19,7 @@ const PROJECT_ROOT = @__DIR__
 export PROJECT_ROOT
 
 # Get the files to include
-moduleFile = "Foo.jl"
+moduleFile = joinpath(PROJECT_ROOT, "Foo.jl")
 filelist = list_files(PROJECT_ROOT, moduleFile)
 
 # Include all files
