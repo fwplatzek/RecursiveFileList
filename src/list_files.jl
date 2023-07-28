@@ -24,20 +24,3 @@ function list_files(srcdir; fileToRemove="NeverToBeFound", pattern=allFilesPatte
 
     return filelist
 end
-
-"""
-    retval = include_files(srcdir; fileToRemove="NeverToBeFound")
-
-    Include all Julia files recursively in folder SRCDIR,
-    excluding the module file which is to be specified as the FILETOREMOVE.
-"""
-function include_files(srcdir; fileToRemove="NeverToBeFound")
-    pattern = juliaFilesPattern
-    filelist = list_files(srcdir; fileToRemove=fileToRemove, pattern=pattern)
-
-    for file in filelist
-        include(file)
-    end
-
-    return 0
-end
