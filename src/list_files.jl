@@ -32,7 +32,7 @@ end
     excluding the module file which is to be specified as the FILETOREMOVE.
 """
 function include_files(srcdir; fileToRemove="NeverToBeFound")
-    pattern=juliaFilesPattern
+    pattern = juliaFilesPattern
     filelist = list_files(srcdir; fileToRemove=fileToRemove, pattern=pattern)
 
     for file in filelist

@@ -57,10 +57,9 @@ const TEST_ROOT = @__DIR__
     @testset "Include files" begin
         testFolder = joinpath(TEST_ROOT, "testFolder")
         moduleFile = "TestRecursiveFiles.jl"
-        pattern = juliaFilesPattern
 
         # Get the recursive files of a certain use-defined type
-        retval = RecursiveFiles.include_files(testFolder; fileToRemove=moduleFile, pattern=pattern)
+        retval = RecursiveFiles.include_files(testFolder; fileToRemove=moduleFile)
         @test retval == 0
     end
 end
