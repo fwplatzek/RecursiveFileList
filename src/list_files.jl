@@ -26,25 +26,14 @@ function list_files(srcdir; fileToRemove="NeverToBeFound", pattern=allFilesPatte
 end
 
 """
-    retval = include_files(srcdir; fileToRemove="NeverToBeFound", pattern=juliaFilesPattern)
+    retval = include_files(srcdir; fileToRemove="NeverToBeFound")
 
     Include all Julia files recursively in folder SRCDIR,
     excluding the module file which is to be specified as the FILETOREMOVE.
-    The optional PATTERN is not required here as it includes all Julia files per default.
 """
-function include_files(srcdir; fileToRemove="NeverToBeFound", pattern=juliaFilesPattern)
-    filelist = []
-    for (root, dirs, files) in walkdir(srcdir)
-        # global contents # if in REPL
-        for file in files
-            if occursin(pattern, file)
-                push!.(Ref(filelist), joinpath.(root, file))
-            end
-        end
-    end
-
-    # Make sure we don't include the module file itself (specified as fileToRemove)
-    filter!(filename->filename≠joinpath(srcdir,fileToRemove), filelist)
+function include_files(srcdir; fileToRemove="NeverToBeFound")
+    pattern=juliaFilesPattern
+    filelist = list_files(srcdir; fileToRemove=fileToRemove, pattern=pattern)
 
     for file in filelist
         include(file)
