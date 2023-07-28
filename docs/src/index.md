@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = RecursiveFileList
+CurrentModule = RecursiveFiles
 ```
 
-# RecursiveFileList
+# RecursiveFiles
 
-Documentation for [RecursiveFileList](https://github.com/fwplatzek/RecursiveFileList.jl).
+Documentation for [RecursiveFiles](https://github.com/fwplatzek/RecursiveFiles.jl).
 
 ```@index
 ```
 
 ```@autodocs
-Modules = [RecursiveFileList]
+Modules = [RecursiveFiles]
 ```

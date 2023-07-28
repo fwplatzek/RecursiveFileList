@@ -60,6 +60,6 @@ jobs:
       - run: |
           julia --project=docs -e '
             using Documenter: DocMeta, doctest
-            using RecursiveFileList
-            DocMeta.setdocmeta!(RecursiveFileList, :DocTestSetup, :(using RecursiveFileList); recursive=true)
-            doctest(RecursiveFileList)'
+            using RecursiveFiles
+            DocMeta.setdocmeta!(RecursiveFiles, :DocTestSetup, :(using RecursiveFiles); recursive=true)
+            doctest(RecursiveFiles)'
