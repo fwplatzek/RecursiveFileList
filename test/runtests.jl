@@ -27,9 +27,10 @@ const TEST_ROOT = @__DIR__
         
         testFolder = joinpath(TEST_ROOT, "testFolder")
         moduleFile = "TestRecursiveFileList.jl"
+        pattern=juliaFilesPattern
 
         # Get the recursive Julia files, excluding the moduleFile (e.g. to include)
-        filelist = RecursiveFileList.list_files(testFolder; fileToRemove=moduleFile, pattern=juliaFilesPattern)
+        filelist = RecursiveFileList.list_files(testFolder; fileToRemove=moduleFile, pattern=pattern)
         @test joinpath(testFolder, "Folder1", "file1.jl") in filelist
         @test joinpath(testFolder, "Folder1", "SubFolder11", "file11.jl") in filelist
         @test joinpath(testFolder, "Folder2", "file2.jl") in filelist
@@ -43,9 +44,10 @@ const TEST_ROOT = @__DIR__
         
         testFolder = joinpath(TEST_ROOT, "testFolder")
         moduleFile = "TestRecursiveFileList.jl"
+        pattern = ".md"
 
         # Get the recursive files of a certain use-defined type
-        filelist = RecursiveFileList.list_files(testFolder; pattern=".md")
+        filelist = RecursiveFileList.list_files(testFolder; pattern=pattern)
         @test joinpath(testFolder, "Folder1", "readme.md") in filelist
         @test joinpath(testFolder, "Folder2", "SubFolder22", "readme.md") in filelist
         @test !(joinpath(testFolder, moduleFile) in filelist)
@@ -55,9 +57,10 @@ const TEST_ROOT = @__DIR__
     @testset "Include files" begin
         testFolder = joinpath(TEST_ROOT, "testFolder")
         moduleFile = "TestRecursiveFileList.jl"
+        pattern=juliaFilesPattern
 
         # Get the recursive files of a certain use-defined type
-        retval = RecursiveFileList.include_files(testFolder; fileToRemove=moduleFile, pattern=juliaFilesPattern)
+        retval = RecursiveFileList.include_files(testFolder; fileToRemove=moduleFile, pattern=pattern)
         @test retval == 0
     end
 end
