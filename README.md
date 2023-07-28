@@ -1,9 +1,9 @@
-# RecursiveFileList
+# RecursiveFiles
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://fwplatzek.github.io/RecursiveFileList.jl/stable/)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://fwplatzek.github.io/RecursiveFileList.jl/dev/)
-[![Build Status](https://github.com/fwplatzek/RecursiveFileList.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/fwplatzek/RecursiveFileList.jl/actions/workflows/CI.yml?query=branch%3Amaster)
-[![Coverage](https://codecov.io/gh/fwplatzek/RecursiveFileList.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/fwplatzek/RecursiveFileList.jl)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://fwplatzek.github.io/RecursiveFiles.jl/stable)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://fwplatzek.github.io/RecursiveFiles.jl/dev/)
+[![Build Status](https://github.com/fwplatzek/RecursiveFiles.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/fwplatzek/RecursiveFiles.jl/actions/workflows/CI.yml?query=branch%3Amaster)
+[![Coverage](https://codecov.io/gh/fwplatzek/RecursiveFiles.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/fwplatzek/RecursiveFiles.jl)
 
 A small utility package for obtaining a recursive list of files in Julia.
 It can also be used for including files recursively in a module file (see example 3 below).
