@@ -14,7 +14,7 @@ Three typical examples of use that can be thought of:
 **Example 1:** To just get a list of all files in a folder within Julia:
 
 ```julia
-using RecursiveFileList
+using RecursiveFiles
 
 # Current folder where the recursive file list is requested
 curdir = "./current/path"
@@ -26,7 +26,7 @@ filelist = list_files(curdir)
 **Example 2:** Get a list of files of a certain file type in a folder within Julia:
 
 ```julia
-using RecursiveFileList
+using RecursiveFiles
 
 # Current folder where the recursive file list is requested
 curdir = "./current/path"
@@ -41,7 +41,7 @@ filelist = list_files(curdir; pattern=pattern)
 ```julia
 module Foo
 
-using RecursiveFileList
+using RecursiveFiles
 
 # Main Project root
 const PROJECT_ROOT = @__DIR__
@@ -49,7 +49,15 @@ export PROJECT_ROOT
 
 # Include all files recursively (except the module file itself)
 moduleFile = joinpath(PROJECT_ROOT, "Foo.jl")
-include_files(PROJECT_ROOT; fileToRemove=moduleFile)
+pattern = ".jl"
+
+# Get the recursive files list
+filelist = list_files(PROJECT_ROOT; fileToRemove=moduleFile, pattern=pattern)
+
+# Include all files
+for file in filelist
+    include(file)
+end
 
 export main
 
