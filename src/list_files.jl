@@ -26,11 +26,11 @@ function list_files(srcdir; fileToRemove="NeverToBeFound", pattern=allFilesPatte
 end
 
 """
-    retval = list_files(srcdir; fileToRemove="NeverToBeFound", pattern=allFilesPattern)
+    retval = include_files(srcdir; fileToRemove="NeverToBeFound", pattern=juliaFilesPattern)
 
-    Get a recursive list of files in folder SRCDIR (full nested paths).
-    The optional FILETOREMOVE (if present) will be removed from the list
-    The optional PATTERN can be used for filtering for certain file types.
+    Include all Julia files recursively in folder SRCDIR,
+    excluding the module file which is to be specified as the FILETOREMOVE.
+    The optional PATTERN is not required here as it includes all Julia files per default.
 """
 function include_files(srcdir; fileToRemove="NeverToBeFound", pattern=juliaFilesPattern)
     filelist = []
