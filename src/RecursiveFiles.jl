@@ -1,4 +1,4 @@
-module RecursiveFileList
+module RecursiveFiles
 
 const PROJECT_ROOT = @__DIR__
 export PROJECT_ROOT
