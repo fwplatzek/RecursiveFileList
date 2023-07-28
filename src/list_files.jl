@@ -12,8 +12,10 @@ function list_files(srcdir; fileToRemove="NeverToBeFound", pattern=allFilesPatte
     filelist = []
     for (root, dirs, files) in walkdir(srcdir)
         # global contents # if in REPL
+        len = length(pattern)
         for file in files
-            if occursin(pattern, file)
+            # Compare the last few characters of the file name to the pattern
+            if occursin(pattern, last(file,len+1))
                 push!.(Ref(filelist), joinpath.(root, file))
             end
         end
